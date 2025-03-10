@@ -2,9 +2,14 @@ package com.chat.chatLive.model;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "users")
 public class UserModel {
+
+//    @GeneratedValue(strategy = GenerationType.UUID)
+//    private UUID id;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

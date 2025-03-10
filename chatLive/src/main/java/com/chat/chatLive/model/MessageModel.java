@@ -1,7 +1,7 @@
 package com.chat.chatLive.model;
 
 import jakarta.persistence.*;
-
+import org.hibernate.annotations.GenericGenerator;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -9,7 +9,8 @@ import java.util.UUID;
 @Table(name = "messages")
 public class MessageModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO.UUID)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
     @Column(nullable = false)
@@ -21,6 +22,12 @@ public class MessageModel {
     // Store message Date adn time
     @Column(nullable = false)
     private LocalDateTime timestamp=LocalDateTime.now();
+
+
+    //
+    public enum MessageType{
+        CHAT, LEAVE, JOIN
+    }
 
     // Read these 2 annotations
 //    @PreUpdate

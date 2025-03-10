@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessageService {
-    @Autowired
-    private MessageService msgService;
+//    @Autowired
+//    private MessageService msgService;
+
 
 
 
